@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensitiveTest.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,6 +23,11 @@ namespace SensitiveTest
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Заполнение данных по экстрасенсам.
+            SensitiveService sensitiveService=new SensitiveService();
+            sensitiveService.InitData();
+           
         }
     }
 }

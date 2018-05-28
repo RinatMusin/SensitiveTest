@@ -5,7 +5,21 @@
 
 <h1>Тестирование экстрасенсов</h1>
 <div class="row">
-    <div class="col-sm-3"><h5>Экстрасенсы:</h5></div>
+    <div class="col-sm-3">
+        <h5>Экстрасенсы:</h5>
+        <div id="senlist">
+            <ul class="list-group">
+                <li v-for="item in items" class="list-group-item">
+                    {{item.name}}
+                    <div><img v-bind:src="item.photo" /></div>
+                    <div>Достоверность: {{item.reliability}}</div>
+                    <div>Количество угадываний: {{item.answerCount}}</div>
+                    
+                </li>
+            </ul>
+
+        </div>
+    </div>
     <div class="col-sm-5">
 
         <div id="senapp">
@@ -14,7 +28,26 @@
                     Загадайте двухзначное число и нажмите кнопку старт.
                 </div>
                 <div class="col-sm-6 center-block">
-                    <div class="btn btn-success center-block" v-on:click="startTest()">Старт</div>
+                    <button class="btn btn-success center-block" v-on:click="startTest()">Старт</button>
+                </div>
+
+            </div>
+
+            <div v-if="step==2">
+                <div class="answer-group row">
+                    <div v-for="item in items" class="answer-group-item col-sm-6">
+                        {{item.name}}
+                        <div><img v-bind:src="item.photo" /></div>
+                        <div>Ответ: {{item.value}}</div>
+
+                    </div>
+                </div>
+                <div class="alert alert-info">
+                    Введите загаданное число.
+                </div>
+                <div class="col-sm-6 center-block">
+                    <input class="" v-model="userValue" />
+                    <button class="btn btn-success center-block" v-on:click="checkValue()">Проверка!</button>
                 </div>
 
             </div>

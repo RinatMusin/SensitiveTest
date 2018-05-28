@@ -23,6 +23,10 @@ namespace SensitiveTest
             // Чтобы отключить трассировку в приложении, закомментируйте или удалите следующую строку кода
             // Дополнительные сведения см. по адресу: http://www.asp.net/web-api
             config.EnableSystemDiagnosticsTracing();
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+           // HttpConfiguration config = GlobalConfiguration.Configuration;
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+//            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
         }
     }
 }
