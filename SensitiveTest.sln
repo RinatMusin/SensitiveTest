@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensitiveTest", "SensitiveTest\SensitiveTest.csproj", "{5E2D271B-5F76-485E-8138-97DE235CEFCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensitiveTest.Tests", "SensitiveTest.Tests\SensitiveTest.Tests.csproj", "{DE6730FB-AAC2-41ED-B9F8-44706C12A5F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E2D271B-5F76-485E-8138-97DE235CEFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2D271B-5F76-485E-8138-97DE235CEFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2D271B-5F76-485E-8138-97DE235CEFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2D271B-5F76-485E-8138-97DE235CEFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6730FB-AAC2-41ED-B9F8-44706C12A5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6730FB-AAC2-41ED-B9F8-44706C12A5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6730FB-AAC2-41ED-B9F8-44706C12A5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6730FB-AAC2-41ED-B9F8-44706C12A5F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
