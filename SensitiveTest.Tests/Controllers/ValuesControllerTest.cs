@@ -20,7 +20,7 @@ namespace SensitiveTest.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Действие
-            IEnumerable<string> result = controller.Get();
+            IEnumerable<int> result = controller.Get();
 
             // Утверждение
             Assert.IsNotNull(result);

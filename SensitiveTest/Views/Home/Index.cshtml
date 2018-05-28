@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Тестирование экстрасенсов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Тестирование экстрасенсов</h1>
+<div class="row">
+    <div class="col-sm-3"><h5>Экстрасенсы:</h5></div>
+    <div class="col-sm-5">
+
+        <div id="senapp">
+            <div v-if="step==1">
+                <div class="alert alert-info">
+                    Загадайте двухзначное число и нажмите кнопку старт.
+                </div>
+                <div class="col-sm-6 center-block">
+                    <div class="btn btn-success center-block" v-on:click="startTest()">Старт</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4"><h5>История загаданных чисел:</h5></div>
+
+</div>

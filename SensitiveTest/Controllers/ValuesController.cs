@@ -9,10 +9,13 @@ namespace SensitiveTest.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        /// <summary>
+        /// Получить варианты ответа экстрасенсов.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<int> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new int[] { 10,20 };
         }
 
         // GET api/values/5
