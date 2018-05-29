@@ -10,13 +10,10 @@ namespace SensitiveTest.ViewModels
     /// </summary>
     public class SensitiveAnswerViewModel
     {
-
         /// <summary>
         /// Угаданное значение.
         /// </summary>
-        public int Value;
-
-      
+        public int Value;      
 
         /// <summary>
         /// Имя экстрасенса.
@@ -26,7 +23,6 @@ namespace SensitiveTest.ViewModels
         /// <summary>
         /// Фотография эктрасенса.
         /// </summary>
-        public string Photo;
-     //   public string QueryHash;
+        public string Photo;     
     }
 }

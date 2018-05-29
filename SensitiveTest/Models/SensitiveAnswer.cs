@@ -20,7 +20,9 @@ namespace SensitiveTest.Models
         /// </summary>
         public bool Result;
 
-       
+        /// <summary>
+        /// Идентификатор теста.
+        /// </summary>
         public string QueryHash;
 
 

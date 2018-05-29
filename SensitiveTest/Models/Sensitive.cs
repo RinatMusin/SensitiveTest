@@ -24,18 +24,29 @@ namespace SensitiveTest.Models
         /// Фотография эктрасенса.
         /// </summary>
         public string Photo;
-
-
-
+        
+        /// <summary>
+        /// Количество ответов экстрасенса
+        /// </summary>
         public int AnswerCount { get { return AnswerItems.Count; } }
 
+        /// <summary>
+        /// Список ответов.
+        /// </summary>
         public List<SensitiveAnswer> AnswerItems = new List<SensitiveAnswer>();
+
+        /// <summary>
+        /// Добавить ответ
+        /// </summary>
+        /// <param name="answer"></param>
         internal void AddAnswer(SensitiveAnswer answer)
         {
             AnswerItems.Add(answer);
-
         }
 
+        /// <summary>
+        /// Идентификатор экстрасенса.
+        /// </summary>
         public string Hash { get; set; }
     }
 }

@@ -8,7 +8,14 @@ namespace SensitiveTest.ViewModels
 {
     public class UserAnswerViewModel
     {
+        /// <summary>
+        /// Значение пользователя.
+        /// </summary>
         public int Value;        
+        
+        /// <summary>
+        /// Описание.
+        /// </summary>
         public string Description;
     }
 }

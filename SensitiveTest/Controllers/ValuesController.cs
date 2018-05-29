@@ -28,7 +28,8 @@ namespace SensitiveTest.Controllers
             // Задать ответы экстрасенсов.
             if (sensitives != null)
             {
-                 Random random = new Random();
+                Random random = new Random();
+
                 // Определить идентификатор запроса данных, для дальнейшей проверки. Используется Hash.
                 string queryHash = HashService.GetHashValue(sensitiveService.GetRandomSensitiveIndex().ToString());
                 vm.QueryHash = queryHash;
@@ -36,23 +37,21 @@ namespace SensitiveTest.Controllers
                 {
                     var answer = new Models.SensitiveAnswer
                         {
-                            Value =random.Next(10, 99),
+                            Value = random.Next(10, 99),
                             QueryHash = queryHash
                         };
                     s.AddAnswer(answer);
+
                     vm.Items.Add(new SensitiveAnswerViewModel
                     {
                         Name = s.Name,
                         Photo = s.Photo,
                         Value = answer.Value,
-                        //    QueryHash = queryHash
                     });
                 }
             }
             return vm;
         }
-
-     
 
         /// <summary>
         /// Ввод данных пользователя.
@@ -66,8 +65,6 @@ namespace SensitiveTest.Controllers
 
             var cookie = Request.Headers.GetCookies("UserHash").FirstOrDefault();
             string userHash = cookie != null ? cookie["UserHash"].Value : HashService.GetHashValue(userService.GetUserID().ToString());
-
-
 
             // Попытка преобразовать в число.
             int res = 0;
@@ -85,7 +82,7 @@ namespace SensitiveTest.Controllers
                 SensitiveService sensitiveService = new SensitiveService();
 
                 // Идет проверка по экстрасенсам.
-                var sensitives = sensitiveService.GetSensitives();//.Where(s => s.AnswerItems.Where(a => a.QueryHash == form.QueryHash).ToList().Count > 0).ToList();
+                var sensitives = sensitiveService.GetSensitives();
                 foreach (var s in sensitives)
                 {
                     var answer = s.AnswerItems.Where(a => a.QueryHash == form.QueryHash).FirstOrDefault();
@@ -114,8 +111,5 @@ namespace SensitiveTest.Controllers
 
             return vm;
         }
-
-
-
     }
 }

@@ -25,13 +25,13 @@ namespace SensitiveTest
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // Заполнение данных по экстрасенсам.
-            SensitiveService sensitiveService=new SensitiveService();
+            SensitiveService sensitiveService = new SensitiveService();
             sensitiveService.InitData();
 
             // Начальная инициализация для ответов пользователя.
             UserService userService = new UserService();
             userService.InitData();
-           
+
         }
     }
 }

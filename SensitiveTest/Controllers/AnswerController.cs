@@ -11,8 +11,13 @@ namespace SensitiveTest.Controllers
 {
     public class AnswerController : ApiController
     {
+        /// <summary>
+        /// Получить список ответов пользователя.
+        /// </summary>
+        /// <returns></returns>
         public UserAnswerListViewModel Get()
         {
+            // Идентификация пользователя через кукис.
             var cookie = Request.Headers.GetCookies("UserHash").FirstOrDefault();
             string userHash = cookie != null ? cookie["UserHash"].Value : "";
 
@@ -30,8 +35,6 @@ namespace SensitiveTest.Controllers
                                 Value = answer.Value,
                                 Description = answer.Description
                             };
-
-
                         vm.Items.Add(userAnswer);
                     }
             }

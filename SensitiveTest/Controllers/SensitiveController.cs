@@ -43,6 +43,9 @@ namespace SensitiveTest.Controllers
             return vm;
         }
 
+        /// <summary>
+        /// Идентификатор экстрасенса.
+        /// </summary>
         public string Hash { get; set; }
     }
 }

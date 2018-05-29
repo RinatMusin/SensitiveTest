@@ -7,6 +7,9 @@ using System.Web;
 
 namespace SensitiveTest.Services
 {
+    /// <summary>
+    /// Получить MD5-хэш
+    /// </summary>
     public class HashService
     {
         static string GetMd5Hash(MD5 md5Hash, string input)

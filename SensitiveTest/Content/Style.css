@@ -28,5 +28,6 @@
         list-style: none;
     }
 
-.container {min-width:720px;
+.container {
+    min-width: 720px;
 }

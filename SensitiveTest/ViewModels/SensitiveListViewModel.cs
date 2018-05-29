@@ -10,6 +10,9 @@ namespace SensitiveTest.ViewModels
     /// </summary>
     public class SensitiveListViewModel
     {
+        /// <summary>
+        /// Список экстрасенсов.
+        /// </summary>
         public List<Models.Sensitive> Items { get; set; }
 
     }

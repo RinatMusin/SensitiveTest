@@ -10,8 +10,14 @@ namespace SensitiveTest.ViewModels
     /// </summary>
     public class SensitiveAnswerListViewModel
     {
+        /// <summary>
+        /// Список ответов экстрасенса.
+        /// </summary>
         public List<SensitiveAnswerViewModel> Items = new List<SensitiveAnswerViewModel>();
 
+        /// <summary>
+        /// Идентификатор теста.
+        /// </summary>
         public string QueryHash { get; set; }
     }
 }

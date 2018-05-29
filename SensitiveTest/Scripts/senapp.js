@@ -8,7 +8,9 @@ senapp = new Vue({
         items: [],
         // Загаданное число пользователем.
         userValue: 0,
+        // Идентификатор теста.
         queryHash: '',
+        // Сообщение об ошибке.
         errorMessage: ''
     },
     methods:
@@ -19,12 +21,9 @@ senapp = new Vue({
                 senapp.step = 2;
 
                 // Получить ответы экстрасенсов.
-                $.get("/api/values", function (data) {
-                    console.log(data);
+                $.get("/api/values", function (data) {                    
                     senapp.items = data.items;
-                    senapp.queryHash = data.queryHash;
-                    //senlist.updateSensitives();
-                    //senapp.step = 1;
+                    senapp.queryHash = data.queryHash;                    
                 });
             },
 
@@ -32,6 +31,8 @@ senapp = new Vue({
                 $.post("/api/values", { value: senapp.userValue, queryHash: senapp.queryHash }, function (data) {
                     $.cookie("userHash", data.userHash);
                     senapp.errorMessage = data.errorMessage;
+                    
+                    // Нет ошибки, повторить тест.
                     if (senapp.errorMessage == null) {
                         senapp.userValue = 0;
                         senlist.updateSensitives();
@@ -49,9 +50,12 @@ senapp = new Vue({
 senlist = new Vue({
     el: '#senlist',
     data: {
+        // Список экстрасенсов.
         items: [],
+        // Список активной истории по экстрасенсу.
         answers: [],
-        answerHash:''
+        // Идентификатор экстрасенса, для которого идет просмотр истории.
+        answerHash: ''
     },
     methods: {
         // Начальная загрузка данных по экстрасенсам.
@@ -80,6 +84,7 @@ senlist = new Vue({
 answerlist = new Vue({
     el: '#answerlist',
     data: {
+        // Список ответов.
         items: []
     },
     methods: {
@@ -96,5 +101,6 @@ answerlist = new Vue({
 
 // Инициализация списка экстрасенсов.
 senlist.updateSensitives();
+
 // Инициализация списка ответов пользователя.
 answerlist.updateAnswerList();

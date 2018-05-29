@@ -76,6 +76,10 @@ namespace SensitiveTest.Services
             return sensitives.OrderBy(emp => Guid.NewGuid()).Take(2).ToList();
         }
 
+        /// <summary>
+        /// Получить номер тестирования.
+        /// </summary>
+        /// <returns></returns>
         internal int GetRandomSensitiveIndex()
         {
             int index = (int)HttpContext.Current.Application["RandomSensitiveIndex"];
@@ -84,6 +88,11 @@ namespace SensitiveTest.Services
             return index;
         }
 
+        /// <summary>
+        /// Получить данные по экстрасенсу.
+        /// </summary>
+        /// <param name="hash"></param>
+        /// <returns></returns>
         internal Sensitive GetSensitive(string hash)
         {
             return GetSensitives().Where(s => s.Hash == hash).FirstOrDefault();
