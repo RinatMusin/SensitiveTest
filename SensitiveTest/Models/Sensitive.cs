@@ -25,15 +25,7 @@ namespace SensitiveTest.Models
         /// </summary>
         public string Photo;
 
-        /// <summary>
-        /// Количество правильных ответов.
-        /// </summary>
-        public int SuccessCount;
 
-        /// <summary>
-        /// Количество ошибочных ответов.
-        /// </summary>
-        public int ErrorCount;
 
         public int AnswerCount { get { return AnswerItems.Count; } }
 
@@ -41,7 +33,9 @@ namespace SensitiveTest.Models
         internal void AddAnswer(SensitiveAnswer answer)
         {
             AnswerItems.Add(answer);
-            //TODO сохранить
+
         }
+
+        public string Hash { get; set; }
     }
 }

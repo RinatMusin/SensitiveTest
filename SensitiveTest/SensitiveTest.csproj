@@ -150,6 +150,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SensitiveController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -160,12 +161,18 @@
     <Compile Include="Models\Global.cs" />
     <Compile Include="Models\Sensitive.cs" />
     <Compile Include="Models\SensitiveAnswer.cs" />
+    <Compile Include="Models\UserAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HashService.cs" />
     <Compile Include="Services\SensitiveService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\AnswerResultViewModel.cs" />
     <Compile Include="ViewModels\SensitiveAnswerViewModel.cs" />
     <Compile Include="ViewModels\SensitiveAnswerListViewModel.cs" />
     <Compile Include="ViewModels\SensitiveListViewModel.cs" />
+    <Compile Include="ViewModels\SensitiveViewModel.cs" />
+    <Compile Include="ViewModels\UserAnswerViewModel.cs" />
+    <Compile Include="ViewModels\UserAnswerListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />

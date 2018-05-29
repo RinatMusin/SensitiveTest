@@ -36,10 +36,10 @@ namespace SensitiveTest.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Действие
-            string result = controller.Get(5);
+        //    string result = controller.Get(5);
 
             // Утверждение
-            Assert.AreEqual("value", result);
+         //   Assert.AreEqual("value", result);
         }
 
         [TestMethod]

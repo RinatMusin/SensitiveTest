@@ -27,6 +27,10 @@ namespace SensitiveTest
             // Заполнение данных по экстрасенсам.
             SensitiveService sensitiveService=new SensitiveService();
             sensitiveService.InitData();
+
+            // Начальная инициализация для ответов пользователя.
+            UserService userService = new UserService();
+            userService.InitData();
            
         }
     }

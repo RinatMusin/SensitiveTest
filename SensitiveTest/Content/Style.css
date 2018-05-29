@@ -1,11 +1,32 @@
 ﻿.center-block {
-    margin:0 auto;
-    display:block;
+    margin: 0 auto;
+    display: block;
 }
-.answer-group {
+
+.answer-box {
+    margin-bottom: 2rem;
 }
-.answer-group-item {padding: .75rem 1.25rem;
-    margin-bottom: -1px;
+
+.answer-item {
+    padding: .75rem 1.25rem;
+    margin: 0.5rem;
     background-color: #fff;
-    border: 1px solid rgba(0,0,0,.125);    border-radius: .25rem;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.photo {
+    max-width: 100%;
+}
+
+.sensitive-answers {
+    padding: 0;
+    margin: 0;
+}
+
+    .sensitive-answers li {
+        list-style: none;
+    }
+
+.container {min-width:720px;
 }

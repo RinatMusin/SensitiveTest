@@ -11,6 +11,8 @@ namespace SensitiveTest.Controllers
 {
     public class SensitiveController : ApiController
     {
+        SensitiveService sensitiveService = new SensitiveService();
+
         /// <summary>
         /// Получить список экстрасенсов.
         /// </summary>
@@ -18,9 +20,29 @@ namespace SensitiveTest.Controllers
         public SensitiveListViewModel Get()
         {
             var vm = new SensitiveListViewModel();
-            SensitiveService sensitiveService = new SensitiveService();
             vm.Items = sensitiveService.GetSensitives();
             return vm;
         }
+
+        /// <summary>
+        /// Данные по экстрасенсу - история догадок.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public SensitiveViewModel Get(string id)
+        {
+            var vm = new SensitiveViewModel
+            {
+                Hash = id
+            };
+
+            var sensitive = sensitiveService.GetSensitive(id);
+            if (sensitive != null)
+                vm.Answers = sensitive.AnswerItems;
+
+            return vm;
+        }
+
+        public string Hash { get; set; }
     }
 }

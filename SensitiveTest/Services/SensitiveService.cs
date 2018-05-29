@@ -17,24 +17,28 @@ namespace SensitiveTest.Services
             var res = new List<Sensitive>();
             res.Add(new Sensitive
             {
+                Hash = HashService.GetHashValue("1"),
                 Name = "Константин Гецати",
                 Reliability = 0,
                 Photo = "/images/s1.jpg"
             });
             res.Add(new Sensitive
             {
+                Hash = HashService.GetHashValue("2"),
                 Name = "Cвами Даши",
                 Reliability = 0,
                 Photo = "/images/s2.jpg"
             });
             res.Add(new Sensitive
             {
+                Hash = HashService.GetHashValue("3"),
                 Name = "Мерилин Керро",
                 Reliability = 0,
                 Photo = "/images/s3.jpg"
             });
             res.Add(new Sensitive
             {
+                Hash = HashService.GetHashValue("4"),
                 Name = "Надежда Шевченко",
                 Reliability = 0,
                 Photo = "/images/s4.jpg"
@@ -78,6 +82,11 @@ namespace SensitiveTest.Services
             index++;
             HttpContext.Current.Application["RandomSensitiveIndex"] = index;
             return index;
+        }
+
+        internal Sensitive GetSensitive(string hash)
+        {
+            return GetSensitives().Where(s => s.Hash == hash).FirstOrDefault();
         }
     }
 }

@@ -28,6 +28,7 @@ namespace SensitiveTest.Controllers
             // Задать ответы экстрасенсов.
             if (sensitives != null)
             {
+                 Random random = new Random();
                 // Определить идентификатор запроса данных, для дальнейшей проверки. Используется Hash.
                 string queryHash = HashService.GetHashValue(sensitiveService.GetRandomSensitiveIndex().ToString());
                 vm.QueryHash = queryHash;
@@ -35,7 +36,7 @@ namespace SensitiveTest.Controllers
                 {
                     var answer = new Models.SensitiveAnswer
                         {
-                            Value = 34,
+                            Value =random.Next(10, 99),
                             QueryHash = queryHash
                         };
                     s.AddAnswer(answer);
@@ -51,18 +52,23 @@ namespace SensitiveTest.Controllers
             return vm;
         }
 
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+     
 
         /// <summary>
         /// Ввод данных пользователя.
         /// </summary>
         /// <param name="value"></param>
-        public void Post([FromBody]ValueResultFormModel form)
+        public AnswerResultViewModel Post([FromBody]ValueResultFormModel form)
         {
+            var vm = new AnswerResultViewModel();
+
+            UserService userService = new UserService();
+
+            var cookie = Request.Headers.GetCookies("UserHash").FirstOrDefault();
+            string userHash = cookie != null ? cookie["UserHash"].Value : HashService.GetHashValue(userService.GetUserID().ToString());
+
+
+
             // Попытка преобразовать в число.
             int res = 0;
             Int32.TryParse(form.Value, out res);
@@ -70,6 +76,12 @@ namespace SensitiveTest.Controllers
             // Проверка на диапазон от 10 до 99.
             if (res >= 10 && res <= 99)
             {
+                var userAnswer = new Models.UserAnswer
+                {
+                    Value = res,
+                    UserHash = userHash
+                };
+
                 SensitiveService sensitiveService = new SensitiveService();
 
                 // Идет проверка по экстрасенсам.
@@ -83,14 +95,24 @@ namespace SensitiveTest.Controllers
                         {
                             answer.Result = true;
                             s.Reliability++;
+                            userAnswer.Result = true;
+                            if (!string.IsNullOrEmpty(userAnswer.Description))
+                                userAnswer.Description += ", ";
+                            userAnswer.Description += s.Name;
                         }
                         else
                             s.Reliability--;
-
-
                     }
                 }
+                userService.AddUserAnswer(userAnswer);
             }
+            else
+            {
+                vm.ErrorMessage = "Введите правильное число!";
+            }
+            vm.UserHash = userHash;
+
+            return vm;
         }
 
 
